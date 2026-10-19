@@ -1,0 +1,83 @@
+{
+  "name": "@abhijeetjha0/lint-rules",
+  "version": "1.0.0",
+  "description": "Unified and modular ESLint and Stylelint configurations for JavaScript, TypeScript, React, CSS, and SCSS",
+  "type": "module",
+  "main": "./eslint/base.js",
+  "exports": {
+    "./eslint/base": "./eslint/base.js",
+    "./eslint/js": "./eslint/base.js",
+    "./eslint/ts": "./eslint/ts.js",
+    "./eslint/react": "./eslint/react.js",
+    "./stylelint/css": "./stylelint/css.js",
+    "./stylelint/scss": "./stylelint/scss.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "eslint",
+    "stylelint",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --check eslint/*.js stylelint/*.js && npm run test:lint",
+    "test:lint": "node ./test/run-tests.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.21.0",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint-plugin-import-x": "^4.6.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "postcss-scss": "^4.0.9",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-order": "^6.0.4",
+    "typescript-eslint": "^8.25.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0",
+    "stylelint": ">=16.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "stylelint": "^16.14.1",
+    "typescript": "^5.7.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhijeetjha0/lint-rules.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-flat-config",
+    "stylelint",
+    "stylelint-config",
+    "javascript",
+    "typescript",
+    "react",
+    "css",
+    "scss"
+  ],
+  "author": "Abhijit Kumar Jha <53831506+abhijeetjha0@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhijeetjha0/lint-rules/issues"
+  },
+  "homepage": "https://github.com/abhijeetjha0/lint-rules#readme"
+}

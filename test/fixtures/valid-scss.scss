@@ -1,0 +1,14 @@
+$primary-color: #09f;
+
+.widget {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  color: $primary-color;
+
+  &__header {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
