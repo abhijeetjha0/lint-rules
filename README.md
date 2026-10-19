@@ -31,15 +31,23 @@ Powered by **ESLint 9+ Flat Config** and **Stylelint 16+**, structured with **mo
 
 ## Installation
 
-### 1. Authenticate with GitHub Packages (`.npmrc`)
+### Option A: From Public NPM (Recommended)
 
-Add the following to your consumer project's `.npmrc`:
+No extra configuration needed—install directly:
+
+```bash
+npm install -D @abhijeetjha0/lint-rules eslint stylelint typescript
+```
+
+### Option B: From GitHub Packages
+
+If installing via GitHub Packages, add the registry mapping to your consumer project's `.npmrc`:
 
 ```ini
 @abhijeetjha0:registry=https://npm.pkg.github.com
 ```
 
-### 2. Install Package and Peer Dependencies
+Then install:
 
 ```bash
 npm install -D @abhijeetjha0/lint-rules eslint stylelint typescript

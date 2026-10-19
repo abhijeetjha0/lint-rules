@@ -1,7 +1,7 @@
 # Project Agent Guidelines
 
 ## Project Overview
-`@abhijeetjha0/lint-rules` provides centralized, modular ESLint 9+ Flat Config and Stylelint 16+ presets for JavaScript, TypeScript, React, CSS, and SCSS across repositories. It is published to GitHub Packages as a scoped npm package (`@abhijeetjha0/lint-rules`).
+`@abhijeetjha0/lint-rules` provides centralized, modular ESLint 9+ Flat Config and Stylelint 16+ presets for JavaScript, TypeScript, React, CSS, and SCSS across repositories. It is published to both public npmjs.com and GitHub Packages as a scoped npm package (`@abhijeetjha0/lint-rules`).
 
 ## Tech Stack
 - **Runtime & Node**: Node.js `v24.18.0` (see `.nvmrc`)

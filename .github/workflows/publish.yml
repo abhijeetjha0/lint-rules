@@ -6,7 +6,39 @@ on:
       - 'v*.*.*'
 
 jobs:
-  publish:
+  publish-npm:
+    name: Publish to npmjs.com
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Validate Rule Files
+        run: npm test
+
+      - name: Publish to Public NPM
+        if: env.NPM_TOKEN != ''
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Warn if NPM_TOKEN Missing
+        if: env.NPM_TOKEN == ''
+        run: echo "::warning::NPM_TOKEN secret not configured in repo settings. Skipping npmjs.com release."
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-github:
     name: Publish to GitHub Packages
     runs-on: ubuntu-latest
     permissions:

@@ -106,7 +106,7 @@ Because changes in linting rules directly affect downstream CI pipelines across 
 
 ## 5. Release & Tagging Procedure
 
-Releases are published automatically to **GitHub Packages** via GitHub Actions ([`.github/workflows/publish.yml`](.github/workflows/publish.yml)) when a version tag (`v*.*.*`) is pushed.
+Releases are published automatically to both **npmjs.com** and **GitHub Packages** via GitHub Actions ([`.github/workflows/publish.yml`](.github/workflows/publish.yml)) when a version tag (`v*.*.*`) is pushed. (Requires `NPM_TOKEN` secret configured in repository settings for npmjs.com publishing).
 
 ### Step 1: Ensure `main` is Clean and Tested
 
@@ -161,7 +161,7 @@ git push origin "v$VERSION"
 3. Verify that:
    - Dependencies were installed (`npm ci`).
    - Rule validation and integration tests passed (`npm test`).
-   - Package published successfully to GitHub Packages (`npm publish`).
+   - Package published successfully to npmjs.com (`publish-npm` job) and GitHub Packages (`publish-github` job).
 
 ---
 
