@@ -26,17 +26,14 @@ jobs:
         run: npm test
 
       - name: Publish to Public NPM
-        if: env.NPM_TOKEN != ''
-        run: npm publish --access public
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::warning::NPM_TOKEN secret is not configured in repository secrets. Skipping npmjs.com publish."
+            exit 0
+          fi
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Warn if NPM_TOKEN Missing
-        if: env.NPM_TOKEN == ''
-        run: echo "::warning::NPM_TOKEN secret not configured in repo settings. Skipping npmjs.com release."
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-github:
     name: Publish to GitHub Packages

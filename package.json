@@ -1,6 +1,6 @@
 {
   "name": "@abhijeetjha0/lint-rules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unified and modular ESLint and Stylelint configurations for JavaScript, TypeScript, React, CSS, and SCSS",
   "type": "module",
   "main": "./eslint/base.js",
