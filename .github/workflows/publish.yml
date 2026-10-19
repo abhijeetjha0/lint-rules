@@ -9,6 +9,9 @@ jobs:
   publish-npm:
     name: Publish to npmjs.com
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for npm Trusted Publishing (OIDC)
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -26,12 +29,7 @@ jobs:
         run: npm test
 
       - name: Publish to Public NPM
-        run: |
-          if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo "::warning::NPM_TOKEN secret is not configured in repository secrets. Skipping npmjs.com publish."
-            exit 0
-          fi
-          npm publish --access public
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
